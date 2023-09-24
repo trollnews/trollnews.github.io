@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TROLL-NEWS</title>
+    <style>body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: rgb(255,0,215);
+      background: linear-gradient(90deg, rgba(255,0,215,1) 0%, rgba(0,0,255,1) 81%, rgba(0,212,255,1) 100%);
+        background-size: cover;
+        color: rgb(0, 0, 0);
+        overflow-x: hidden;
+      }
+      
+      header {
+        background-image: url('TROLLNEWSBANER.png');
+        background-size: cover;
+        background-position: center;
+        text-align: center;
+        padding: 100px 0;
+      }
+      
+      .novice {
+        margin: 20px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+      
+      .novica {
+        border: 1px solid #ddd;
+        padding: 20px;
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.9);
+        position: relative;
+      }
+      
+      .novica img {
+        max-width: 100%;
+        border-radius: 5px;
+        display: none;
+      }
+      
+      .naslov-novice {
+        cursor: pointer;
+      }
+      
+      .naslov-novice:hover + .vsebina-novice,
+      .naslov-novice:hover + .vsebina-novice + .slika-novice {
+        display: block;
+      }
+      
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.8);
+      }
+      
+      .modal-content {
+        display: flex;
+        background-color: white;
+        margin: 10% auto;
+        padding: 20px;
+        border-radius: 5px;
+        max-width: 800px;
+        position: relative;
+      }
+      
+      .close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+      
+      .modal-title {
+        margin-top: 0;
+      }
+      
+      .modal-image {
+        max-width: 100%;
+      }
+      
+      .modal-advertisement {
+        max-width: 50%;
+        margin-right: 20px;
+        display: block;
+      }
+      
+      .modal-text {
+        margin-top: 20px;
+      }
+      
+      body.modal-open {
+        overflow: hidden;
+      }
+      
+      .modal-open .novice {
+        pointer-events: none;
+      }
+      
+      .modal-open .modal {
+        display: block;
+      }
+      
+      .modal-open::before {
+        content: "";
+        display: block;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+      
+      footer {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 20px;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+      }
+      /* Tvoj obstoječi CSS */
+      
+      /* Tvoj obstoječi CSS */
+      
+      .side-images {
+        position: fixed;
+        z-index: 9999;
+        padding: 20px;
+        
+      }
+      
+      .side-images img {
+        max-width: 70%;
+        margin-bottom: 20px;
+      }
+      
+      .side-images-left {
+        top: 0;
+        left: 0;
+      }
+      
+      .side-images-right {
+        top: 0;
+        right: 0;
+        margin-right: -120px;
+      }
+      
+      /* Tvoj obstoječi CSS */
+      
+      /* Oblikovanje izbire rubrik */
+      .rubrika-select {
+        text-align: right;
+        padding: 10px;
+      }
+      
+      .rubrika-select label, .rubrika-select select {
+        font-size: 16px;
+      }
+      
+      /* Premikanje izbire rubrik v zgornji desni kot */
+      .rubrika-select {
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+      /* Tvoj obstoječi CSS */
+      
+      /* Oblikovanje začetnega modalnega okna */
+      #initial-modal {
+        display: block;
+        background-color: rgba(0, 0, 0, 0.8);
+      }
+      
+      .initial-modal-content {
+        background-color: white;
+        margin: 10% auto;
+        padding: 20px;
+        border-radius: 5px;
+        max-width: 400px;
+        text-align: center;
+      }
+      
+      #understand-btn {
+        background-color: #00bfff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      </style>
+</head>
+<body>
+    <header>
+        <h1>-</h1>
+        
+    </header>
+
+    <div class="side-images side-images-left">
+        <img src="anniReklamca.png" alt="Slika 112">
+    </div>
+
+    <div class="side-images side-images-right">
+        <img src="T2reklamca.png" alt="Slika 111">
+    </div>
+
+    <section class="novice">
+        <article class="novica">
+            <img src="news1.png" alt="Slika novice 1">
+            <h2>Po temu ko je 26.10.2016 Pero Martič vlomil v diskoteko se je na sobotnem dogodku izkazal kot povprečen DJ.  </h2>
+            <p>Pero Martič je 26.10.2016 vlomil v diskoteko. Po temu incidentu je nadaljeval s šolanjem za poklicnega DJ-ja in v soboto 26.08.2023 je imel prvi nastop s Challe Salle - tom. Žal se mladi nadobudni čelavi DJ ni najbolj izkazal vendar vsi TrollGangovci upamo da bo nekoč uspel in nastopil s njegovimi 3 pesmimi. Trenutno naj bi pisal nadaljevanje "Mama Hotela" - naslov pa naj bi bil "Sodišče me tepe".  </p>
+            <span class="rubrika">Rubrika: Sarkazem</span>
+            <p class="datum-objave">Objavljeno: 27.08.2023</p>
+        </article>
+
+        <article class="novica">
+            <img src="perovrze.jpg" alt="Slika novice 2">
+            <h2>Od kje Peru navdih za novo pesem "Sodišče me tepe"?</h2>
+            <p>Po temu ko je Pero Martić leta 2020 ponesreči (po njegovi sreči) spustil iz rok svojega še ne rojenega sina se je njegova nekdanja žena odločila za vlogo tožbe. Pero naj bi na sodišču prišel do novega spoznanja in sicer, tam naj bi se spomnil besedila za njegovo novo pesem! Po intervjuju nam je še zaupal nekaj rim iz pesmi :"Sodišče me tepe, kot val na peščeni obali,
+Otrok v srcu joka, pravice ni na strani.
+Pravda naj vzcveti, kot cvetje na travniku,
+Otrok smeh naj vzklije, svetloba v temi skriti.
+
+Sodnik, prisluhni glasu otroškega srca,
+Nežnost, sočutje daj, napolni svet s toplino.
+Otroci so prihodnost, čuvajmo njihove sanje,
+Sodišče naj pravico prinese jim nazaj, v branje.
+"</p>
+            <span class="rubrika">Rubrika: Sarkazem</span>
+            <p class="datum-objave">Objavljeno: 27.08.2023</p>
+        </article>
+        <article class="novica">
+            <img src="slina.jpg" alt="Slika novice 1">
+            <h2>Najnovejše novice o Pero Martiću razkrivajo, da se je njegovo življenje spremenilo v pravo poslastico za občinstvo!</h2>
+            <p>Nekontrolirana slina iz njegovih ust je postala prava zvezda družabnih dogodkov in zabavnih srečanj. Pero, samouklicani guru za DJ-ja, yotuber-ja, pevca, vlogerja in nenazadnje influencerja , ki je bil nekoč znan po svoji sposobnosti govorjenja brez konca, zdaj navdušuje ljudi s svojim novim zdravstvenim probelmom – umetnostjo "slinjenja". Dogaja se nekaj, kar bi lahko opisali kot pravo fontano nenadzorovane sline. Razlog za to še ni znan vendar pa strokovnjaki sklepajo naj bi Pero to počel da bi si osvežil svoje razmišljanje in s tem našel še nekaj rim za novo pesem ter nekaj contenta za youtube.</p>
+            <span class="rubrika">Rubrika: Sarkazem</span>
+            <p class="datum-objave">Objavljeno: 28.08.2023</p>
+        </article>
+        <article class="novica">
+            <img src="peter_salta.jpg" alt="Slika novice 1">
+            <h2>Pero Martić osvaja ženska srca s svojo nenavadno spretnostjo!</h2>
+            <p>Pero Martić, že tako znan po svojih smešnih pripetljajih, je znova zavrnil vsa pričakovanja, tokrat pa ne s svojo nekontrolirano slino, ampak s čim povsem drugačnim - s svojo nesposobnostjo! Kaj točno mu je uspelo zanetiti tolikšno zanimanje, pa preberite v nadaljevanju.
+
+Kot se je izkazalo, Pero že od malih nog nikakor ni uspel osvojiti veščine narediti prave salte. Namesto da bi elegantno zavrtel svoje telo v zraku, se je vsakič končal s smešnim padcem ali zavijanjem v klobčič. Namesto da bi se predal občutkom neuspeha, pa je Pero svojo nespretnost izkoristil na svojo korist!
+
+V zadnjem mesecu dni so njegovi poskusi neslavnih saltov postali prava atrakcija, še posebej med ženskim občinstvom. Njegova iskrenost in pogum, da se na spletu pokaže tako, kot je, sta se izkazala za nepričakovano čarobno formulo, ki je pritegnila številne oboževalke. Mnoge so priznale, da so se zaljubile v Perojevo srčnost in humor, ki ju prikazuje med svojimi smešnimi poskusi, to naj bi bil tudi razlog zakaj ga njegova soproga Ariana večkrat opazuje kako pretočno predvaja v živo saj gledalci pravijo naj bi bila ljubosumna.</p>
+            <span class="rubrika">Rubrika: Sarkazem</span>
+            <p class="datum-objave">Objavljeno: 29.08.2023</p>
+        </article>
+        <!-- Dodajte več novic s slikami po potrebi -->
+    </section>
+
+    <div id="initial-modal" class="modal">
+        <div class="modal-content">
+            <h2 class="modal-title">Pozdravljeni na TROLL-NEWS!</h2>
+            <p class="modal-text">Spletna stran je narejena samo za zabavo in nobena napisana novica ni resnična! Če to razumete, kliknite na gumb "Razumem".</p>
+            <button id="understand-btn">Razumem</button>
+        </div>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 class="modal-title"></h2>
+            <div class="modal-body">
+                <img class="modal-image" src="" alt="">
+                <p class="modal-text"></p>
+            </div>
+        </div>
+    </div>
+<footer>
+        &copy; 2023 TROLL-NEWS. Spletna stran je narejena zgolj in samo iz zabave in sarkazma!!.
+    </footer>
+    <script>document.addEventListener('DOMContentLoaded', function () {
+        const initialModal = document.getElementById('initial-modal');
+        const understandBtn = document.getElementById('understand-btn');
+      
+        understandBtn.addEventListener('click', function () {
+            initialModal.style.display = 'none';
+        });
+      
+        // Preostanek tvojega JavaScripta
+      });
+      
+      document.addEventListener('DOMContentLoaded', function () {
+        const novicaElements = document.querySelectorAll('.novica');
+        const modal = document.getElementById('modal');
+        const modalTitle = modal.querySelector('.modal-title');
+        const modalText = modal.querySelector('.modal-text');
+        const modalImage = modal.querySelector('.modal-image');
+        const closeBtn = modal.querySelector('.close');
+        const sideImagesLeft = document.querySelector('.side-images-left');
+        const sideImagesRight = document.querySelector('.side-images-right');
+        const sideImage112 = document.querySelector('.side-images-left img');
+        const sideImage111 = document.querySelector('.side-images-right img');
+      
+        let currentNovica = null;
+      
+        novicaElements.forEach(function (novica) {
+            const naslov = novica.querySelector('h2');
+            const vsebina = novica.querySelector('p');
+            const slika = novica.querySelector('img');
+            const preberiVecBtn = document.createElement('button');
+            preberiVecBtn.textContent = 'Preberi več!';
+            preberiVecBtn.classList.add('preberi-vec-btn');
+            vsebina.style.display = 'none';
+            novica.appendChild(preberiVecBtn);
+      
+            preberiVecBtn.addEventListener('click', function () {
+                currentNovica = novica;
+                modalTitle.textContent = naslov.textContent;
+                modalText.innerHTML = `${vsebina.innerHTML}`;
+                modalImage.src = slika.src;
+                modalImage.alt = `Slika novice: ${naslov.textContent}`;
+                modalImage.style.display = 'block';
+                modal.style.display = 'block';
+      
+                sideImagesLeft.style.display = 'block';
+                sideImagesRight.style.display = 'block';
+            });
+        });
+      
+        closeBtn.addEventListener('click', function () {
+            modal.style.display = 'none';
+            modalImage.style.display = 'block';
+            sideImagesLeft.style.display = 'none';
+            sideImagesRight.style.display = 'none';
+            currentNovica = null;
+        });
+      
+        window.addEventListener('click', function (event) {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+                modalImage.style.display = 'block';
+                sideImagesLeft.style.display = 'none';
+                sideImagesRight.style.display = 'none';
+                currentNovica = null;
+            }
+        });
+      
+        window.addEventListener('scroll', function () {
+            if (currentNovica) {
+                const novicaRect = currentNovica.getBoundingClientRect();
+                if (novicaRect.top >= 0 && novicaRect.bottom <= window.innerHeight) {
+                    sideImagesLeft.style.display = 'block';
+                    sideImagesRight.style.display = 'block';
+                } else {
+                    sideImagesLeft.style.display = 'none';
+                    sideImagesRight.style.display = 'none';
+                }
+            }
+        });
+      
+        sideImagesLeft.style.display = 'none';
+        sideImagesRight.style.display = 'none';
+      });
+      </script>
+</body>
+</html>
